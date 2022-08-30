@@ -1,0 +1,9 @@
+
+<ion-content>
+    <ion-label position="stacked">Email:</ion-label>
+      <ion-input position="stacked" [(ngModel)]="this.user.email" placeholder="email"></ion-input>
+      <ion-label position="stacked">Password:</ion-label>
+      <ion-input type="password" position="stacked" [(ngModel)]="this.user.password" placeholder="password"></ion-input>
+      <ion-button (click)="loguearse()">Entrar</ion-button>
+  </ion-content> 
+  
