@@ -4,6 +4,10 @@
       <ion-input position="stacked" [(ngModel)]="this.user.email" placeholder="email"></ion-input>
       <ion-label position="stacked">Password:</ion-label>
       <ion-input type="password" position="stacked" [(ngModel)]="this.user.password" placeholder="password"></ion-input>
-      <ion-button (click)="loguearse()">Entrar</ion-button>
-  </ion-content> 
+      <ion-button (click)="loguearse()">Entrar</ion-button><br>
+      <div class="divError" *ngIf="mostrarError">
+        <ion-label>Datos Incorrectos</ion-label>
+      </div>  
+</ion-content> 
+
   

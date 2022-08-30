@@ -1,4 +1,14 @@
-<ion-content [fullscreen]="true">
-  <ion-label>Inicio</ion-label>
-  <ion-button [routerLink]="['/login-register']">Registro</ion-button>
+
+<ion-content class="contenedorInicio">
+  <ion-title>Inicio</ion-title><br>
+  <ion-item  *ngIf="userState|async as user;else login_buttons">
+    <ion-label>Bienvenido: {{user.email}}</ion-label><br>
+    <br><ion-button (click)="desloguearse()">Cerrar Sesion</ion-button>
+  </ion-item>
+  <ng-template #login_buttons>
+    <ion-button [routerLink]="['/login-register']">Registro/Login</ion-button>
+  </ng-template>
+  
+  
+  
 </ion-content>

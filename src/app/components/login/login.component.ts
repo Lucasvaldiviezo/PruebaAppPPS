@@ -8,15 +8,16 @@ import { AuthServiceService } from 'src/app/services/authService/auth-service.se
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-
-  constructor(public ruteo:Router, public authService:AuthServiceService) { }
-
-  ngOnInit() {}
-  
   user={
     email:'',
     password:''
   }
+  mostrarError = false;
+  constructor(public ruteo:Router, public authService:AuthServiceService) { }
+
+  ngOnInit() {}
+  
+  
 
   loguearse(){
     const{email,password}=this.user;
@@ -26,15 +27,18 @@ export class LoginComponent implements OnInit {
         if(res==null)
         {
           console.log("error al logearse",res);
+          this.mostrarError = true;
         }else
         {
           console.log("ingreso!: ",res);
+          this.mostrarError = false;
           this.ruteo.navigateByUrl('home');
         } 
       })
     .catch((error:any) =>
       {
           console.log("error al logearse",error);
+          this.mostrarError = true;
       });
     this.user.email = "";
     this.user.password = "";

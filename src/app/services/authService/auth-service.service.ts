@@ -29,4 +29,16 @@ export class AuthServiceService {
       return null;
     }
   }
+
+  getUserLogged()
+  {
+     return this.afauth.authState;  
+  }
+
+  logout()
+  {
+    this.isUserLogged = false;
+    this.afauth.signOut();
+  }
+
 }
