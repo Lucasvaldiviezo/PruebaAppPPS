@@ -1,14 +1,20 @@
 
-<ion-content class="contenedorInicio">
-  <ion-title>Inicio</ion-title><br>
-  <ion-item  *ngIf="userState|async as user;else login_buttons">
-    <ion-label>Bienvenido: {{user.email}}</ion-label><br>
-    <br><ion-button (click)="desloguearse()">Cerrar Sesion</ion-button>
-  </ion-item>
+<ion-header>
+  <ion-title>Inicio</ion-title>
+</ion-header>
+<ion-content>
+  <ion-img src="/assets/logo-utn.png" class="logoUTN"></ion-img>
+  <div class="contenedorInicio">
+    <div *ngIf="userState|async as user;else login_buttons"><br>
+      <ion-img src="/assets/person-circle.svg" class="iconoUsuario"></ion-img>
+      <div class="texto">
+        <ion-label>Bienvenido:</ion-label><br>
+        <ion-label>{{user.email}}</ion-label>
+      </div>
+      <ion-button (click)="desloguearse()" class="botonCerrarSesion" color="danger">Cerrar Sesion</ion-button>
+    </div>  
+  </div>
   <ng-template #login_buttons>
-    <ion-button [routerLink]="['/login-register']">Registro/Login</ion-button>
-  </ng-template>
-  
-  
-  
+    <ion-button [routerLink]="['/login-register']" class="botonIniciarSesion" color="success">Iniciar Sesion</ion-button>
+  </ng-template>  
 </ion-content>

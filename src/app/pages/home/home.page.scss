@@ -1,5 +1,42 @@
 .contenedorInicio{
   text-align: center;
+  background-color: rgba(122, 112, 112, 0.301);
+  border-width: 5px;
+  border-radius: 10px;
+  border-style: inset;
+  border-color: black;
+  position: relative;
+  width: 65%;
+  min-height: 200px;
+  top:20%;
+  left:18%;
+}
+
+.iconoUsuario{
+  width: 40px;
+  position: relative;
+  left:40%;
+}
+
+.logoUTN{
+  width: 250px;
+  height: 150px;
+  position: relative;
+  left:18%;
+  top:5%;
+}
+
+.botonIniciarSesion{
+  margin-top:32%;
+}
+
+.botonCerrarSesion{
+  margin-top:5%;
+}
+
+.texto{
+  margin-top:2%;
+  margin-bottom: 1%;
 }
 #container {
   text-align: center;

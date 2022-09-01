@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthServiceService } from 'src/app/services/authService/auth-service.service';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit {
     password:''
   }
   mostrarError = false;
-  constructor(public ruteo:Router, public authService:AuthServiceService) { }
+  constructor(public ruteo:Router, public authService:AuthServiceService,private alertController:AlertController) { }
 
   ngOnInit() {}
   
@@ -31,6 +32,7 @@ export class LoginComponent implements OnInit {
         }else
         {
           console.log("ingreso!: ",res);
+          this.presentAlert('Exito al loguearse');
           this.mostrarError = false;
           this.ruteo.navigateByUrl('home');
         } 
@@ -42,5 +44,16 @@ export class LoginComponent implements OnInit {
       });
     this.user.email = "";
     this.user.password = "";
+  }
+
+  async presentAlert(mensaje) {
+    const alert = await this.alertController.create({
+      header: 'LogIn',
+      subHeader: '-',
+      message: mensaje,
+      buttons: ['OK'],
+    });
+
+    await alert.present();
   }
 }
