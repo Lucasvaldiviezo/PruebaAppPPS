@@ -8,6 +8,7 @@ import { LoginRegisterPageRoutingModule } from './login-register-routing.module'
 
 import { LoginRegisterPage } from './login-register.page';
 import { LoginComponent } from 'src/app/components/login/login.component';
+import { RegisterComponent } from 'src/app/components/register/register.component';
 
 @NgModule({
   imports: [
@@ -16,6 +17,6 @@ import { LoginComponent } from 'src/app/components/login/login.component';
     IonicModule,
     LoginRegisterPageRoutingModule
   ],
-  declarations: [LoginRegisterPage,LoginComponent]
+  declarations: [LoginRegisterPage,LoginComponent,RegisterComponent]
 })
 export class LoginRegisterPageModule {}

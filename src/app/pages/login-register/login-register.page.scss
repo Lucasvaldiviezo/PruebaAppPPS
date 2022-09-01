@@ -1,11 +1,28 @@
-.contenedorBotones{
+.contenedorBotones {
     position: relative;
-    top:1%;
-    left:0.5%;
+    top: 5%;
+    left: 0.5%;
     width: 99%;
     border-radius: 10px;
 }
-.botones{
+
+.botones {
     position: relative;
-    left:5%;
+    left: 5%;
+}
+
+.botonLogearse{
+    margin-left:10%;
+    margin-right: 15%;
+}
+
+.iconoBack{
+    width: 30px;
+    position: relative;
+    left:-1%;
+}
+ion-content {
+    // overwrite inline styles
+    --overflow: hidden;
+    overflow: auto;
 }

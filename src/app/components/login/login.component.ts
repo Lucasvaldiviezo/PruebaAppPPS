@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
 
   async presentAlert(mensaje) {
     const alert = await this.alertController.create({
-      header: 'LogIn',
+      header: 'Ingreso',
       subHeader: '-',
       message: mensaje,
       buttons: ['OK'],

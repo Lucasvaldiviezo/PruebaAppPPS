@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-register',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class LoginRegisterPage implements OnInit {
   mostrarVentanaLogeo:boolean = false;
   mostrarVentanaRegistro:boolean = false;
-  constructor() { }
+  constructor(public router:Router) { }
 
   ngOnInit() {
   }
@@ -24,4 +25,7 @@ export class LoginRegisterPage implements OnInit {
     this.mostrarVentanaRegistro = false;
   }
 
+  VolverAInicio(){
+    this.router.navigateByUrl('home');
+  }
 }

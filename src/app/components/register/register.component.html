@@ -1,15 +1,12 @@
 <ion-content>
   <div class="contenedorGeneral">
-    <ion-title class="titulo">Login</ion-title>
+    <ion-title class="titulo">Registrarse</ion-title>
     <div class="texto">
       <ion-label position="stacked">Email:</ion-label>
       <ion-input position="stacked" [(ngModel)]="this.user.email" placeholder="Ingrese su email"></ion-input>
       <ion-label position="stacked">Password:</ion-label>
       <ion-input type="password" position="stacked" [(ngModel)]="this.user.password" placeholder="Ingrese su password"></ion-input>
-      <ion-button (click)="loguearse()" color="success" class="botonEntrar">Entrar</ion-button><br>
-      <ion-item color="danger" *ngIf="mostrarError">
-        <ion-label class="error">Datos Incorrectos</ion-label>
-      </ion-item>
+      <ion-button (click)="registrarse()" color="danger" class="botonRegistrarse">Registrarse</ion-button><br>
     </div>
   </div>
 </ion-content>
