@@ -1,7 +1,12 @@
 <ion-content>
-  <ion-button (click)="AbrirLogeo()" position="stacked" >Logearse</ion-button>
-  <ion-button (click)="AbrirRegistro()" position="stacked" >Registrarse</ion-button>
-  <ion-button [routerLink]="['/home']" position="stacked" >Inicio</ion-button>
+  <ion-item color="dark" class="contenedorBotones">
+    <div class="botones">
+      <ion-button (click)="AbrirLogeo()" position="stacked" >Logearse</ion-button>
+      <ion-button (click)="AbrirRegistro()" position="stacked" >Registrarse</ion-button>
+      <ion-button [routerLink]="['/home']" position="stacked" >Volver</ion-button>
+    </div>
+    
+  </ion-item>
   <ion-content *ngIf="mostrarVentanaLogeo">
     <app-login></app-login>
   </ion-content>
