@@ -13,8 +13,7 @@ export class AuthServiceService {
       return await this.afauth.createUserWithEmailAndPassword(email,password);
     }catch(error)
     {
-      console.log("error en registro", error);
-      return null;
+      throw(error);
     }
   }
 
@@ -25,8 +24,7 @@ export class AuthServiceService {
       return await this.afauth.signInWithEmailAndPassword(email,password);
     }catch (error)
     {
-      console.log("error en login", error);
-      return null;
+      throw(error);
     }
   }
 

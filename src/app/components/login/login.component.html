@@ -2,14 +2,33 @@
   <div class="contenedorGeneral">
     <ion-title class="titulo">Login</ion-title>
     <div class="texto">
-      <ion-label position="stacked">Email:</ion-label>
-      <ion-input position="stacked" [(ngModel)]="this.user.email" placeholder="Ingrese su email"></ion-input>
-      <ion-label position="stacked">Password:</ion-label>
-      <ion-input type="password" position="stacked" [(ngModel)]="this.user.password" placeholder="Ingrese su password"></ion-input>
-      <ion-button (click)="loguearse()" color="success" class="botonEntrar">Entrar</ion-button><br>
-      <ion-item color="danger" *ngIf="mostrarError">
-        <ion-label class="error">Datos Incorrectos</ion-label>
-      </ion-item>
+      <form [formGroup]="formRegistro" (ngSubmit)="loguearse()">
+        <div>
+          <ion-label position="stacked">Email:</ion-label>
+          <ion-input position="stacked" placeholder="Ingrese su email" formControlName="email"></ion-input>
+          <small class="invalid"
+            *ngIf="formRegistro.controls['email'].errors?.['required'] && formRegistro.controls['email'].touched">
+            <label class="errorText">El email es requerido</label>
+          </small>
+          <small class="invalid" *ngIf="formRegistro.controls['email'].errors?.['email'] &&
+            formRegistro.controls['email'].touched">
+            <ion-label>El email no tiene el formato correcto</ion-label>
+          </small>
+        </div><br>
+        <div>
+          <ion-label position="stacked" f>Password:</ion-label>
+          <ion-input type="password" position="stacked" placeholder="Ingrese su password" formControlName="password"></ion-input>
+          <small class="invalid" 
+                    *ngIf="formRegistro.controls['password'].errors?.['required'] && formRegistro.controls['password'].touched">
+                    <ion-label>El password es requerido</ion-label>  
+          </small>
+        </div>
+        <ion-button type="sumbit" color="success" class="botonEntrar" [disabled]="!formRegistro.valid">Entrar</ion-button><br>
+        <!--ion-item color="danger" *ngIf="mostrarError" class="errorItem">
+          <ion-label class="error">{{errorMessage}}</ion-label>
+        </ion-item-->
+      </form>
+
     </div>
   </div>
 </ion-content>

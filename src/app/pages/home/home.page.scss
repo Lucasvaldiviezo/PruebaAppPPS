@@ -1,4 +1,7 @@
 .contenedorInicio{
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   background-color: rgba(122, 112, 112, 0.301);
   border-width: 5px;
@@ -9,7 +12,7 @@
   width: 80%;
   min-height: 200px;
   top:20%;
-  left:11%;
+  left:10%;
 }
 
 .iconoUsuario{
@@ -19,17 +22,10 @@
 }
 
 .logoUTN{
-  width: 250px;
-  height: 150px;
   position: relative;
-  left:10%;
-  top:5%;
+  padding: 20px;
+  top:10%;
 }
-
-.botonIniciarSesion{
-  margin-top:30%;
-}
-
 .botonCerrarSesion{
   margin-top:5%;
 }

@@ -2,15 +2,16 @@
   <ion-item color="primary">
     <ion-img (click)="VolverAInicio()" src="/assets/back-icon.svg" class="iconoBack"></ion-img>
   </ion-item>
+
   <ion-item color="dark" class="contenedorBotones">
-      <ion-button (click)="AbrirLogeo()" size="small" class="botonLogearse" color="tertiary">Logearse</ion-button>
-      <ion-button (click)="AbrirRegistro()" size="small" color="warning">Registrarse</ion-button>
+    <ion-button (click)="AbrirLogeo()" size="small" class="botonLogearse" color="tertiary" slot="start">Logearse</ion-button>
+    <ion-button (click)="AbrirRegistro()" size="small" color="warning" slot="end">Registrarse</ion-button>
   </ion-item>
+
   <ion-content fullscreen *ngIf="mostrarVentanaLogeo">
     <app-login></app-login>
   </ion-content>
   <ion-content fullscreen *ngIf="mostrarVentanaRegistro">
     <app-register></app-register>
   </ion-content>
-  
 </ion-content>

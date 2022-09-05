@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AuthServiceService } from 'src/app/services/authService/auth-service.service';
 import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ToastController } from '@ionic/angular';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -12,33 +14,63 @@ export class RegisterComponent implements OnInit {
     email: '',
     password: ''
   }
-  constructor(public authService:AuthServiceService,private alertController:AlertController, public ruteo:Router) { }
+  errorMessage: string = "";
+  public formRegistro: FormGroup;
+  constructor(public fb: FormBuilder, public authService: AuthServiceService, private alertController: AlertController, public ruteo: Router,private toastController: ToastController) {
+    this.formRegistro = this.fb.group({
+      'email': ['', [Validators.required, Validators.email]],
+      'password': ['', [Validators.required]],
+    });
+  }
 
   ngOnInit() { }
 
 
-  registrarse(){
-    const{email,password}=this.user;
-    this.authService.register(email, password)
-      .then((res: any) => {
-        this.presentAlert('Cuenta creada con exito');
-        this.ruteo.navigateByUrl('home');
-      })
-      .catch((error: any) => {
-        console.log("error al registrarse", error);
-        this.presentAlert('Ese correo ya existe');
-      });
+  registrarse() {
+    try {
+      const email = this.formRegistro.getRawValue().email;
+      const password = this.formRegistro.getRawValue().password;
+      this.authService.register(email, password)
+        .then((res:any) => {
+          this.ruteo.navigateByUrl('home');
+        })
+        .catch((error: any) => {
+          switch (error.code) {
+            case 'auth/invalid-email':
+              this.errorMessage = 'Email invalido.';
+              break;
+            case 'auth/user-disabled':
+              this.errorMessage = 'Usuario deshabilitado.';
+              break;
+            case 'auth/email-already-in-use':
+              this.errorMessage = 'Ese email ya esta en uso.';
+              break;
+            case 'auth/wrong-password':
+              this.errorMessage = 'Contraseña incorrecta.';
+              break;
+            case 'auth/user-not-found':
+              this.errorMessage = 'Usuario no encontrado.';
+              break;
+            default:
+              this.errorMessage = 'Error';
+              break;
+          }
+          this.presentToast('bottom','danger');
+        });
+    } catch (error) {
+      console.log("Error al registrarse", error);
+    }
   }
 
-  async presentAlert(mensaje) {
-    const alert = await this.alertController.create({
-      header: 'Registro',
-      subHeader: '-',
-      message: mensaje,
-      buttons: ['OK'],
+  async presentToast(position: 'top' | 'middle' | 'bottom', color: 'primary' | 'danger') {
+    const toast = await this.toastController.create({
+      message: this.errorMessage,
+      duration: 1500,
+      position: position,
+      color: color,
     });
 
-    await alert.present();
+    await toast.present();
   }
 
 }
