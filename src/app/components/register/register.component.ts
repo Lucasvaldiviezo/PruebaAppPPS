@@ -39,17 +39,11 @@ export class RegisterComponent implements OnInit {
             case 'auth/invalid-email':
               this.errorMessage = 'Email invalido.';
               break;
-            case 'auth/user-disabled':
-              this.errorMessage = 'Usuario deshabilitado.';
-              break;
             case 'auth/email-already-in-use':
               this.errorMessage = 'Ese email ya esta en uso.';
               break;
-            case 'auth/wrong-password':
-              this.errorMessage = 'Contraseña incorrecta.';
-              break;
-            case 'auth/user-not-found':
-              this.errorMessage = 'Usuario no encontrado.';
+            case 'auth/invalid-password':
+              this.errorMessage = 'La contraseña debe tener al menos 6 caracteres.';
               break;
             default:
               this.errorMessage = 'Error';
