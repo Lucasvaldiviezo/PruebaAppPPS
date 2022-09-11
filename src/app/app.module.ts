@@ -8,11 +8,13 @@ import { MenuBarComponent } from './components/menu-bar/menu-bar.component';
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SplashscreenComponent } from './components/splashscreen/splashscreen.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MenuBarComponent
+    MenuBarComponent,
+    SplashscreenComponent
   ],
   imports: [
     BrowserModule, 

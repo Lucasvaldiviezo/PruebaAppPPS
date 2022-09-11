@@ -72,6 +72,12 @@ export class LoginComponent implements OnInit {
     }
   }
 
+  logeoAutomatico(email:string,password:string){
+    this.formRegistro.controls['email'].setValue(email);
+    this.formRegistro.controls['password'].setValue(password);
+    this.loguearse();
+  }
+
   async presentToast(position: 'top' | 'middle' | 'bottom', color: 'primary' | 'danger') {
     const toast = await this.toastController.create({
       message: this.errorMessage,

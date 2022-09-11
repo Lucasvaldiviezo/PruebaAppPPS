@@ -1,7 +1,7 @@
 .contenedorBotones {
-    position: relative;
-    top: 5%;
-    left: 5%;
+    //position: relative;
+    //top: 5%;
+    //left: 5%;
     width: 90%;
     border-radius: 10px;
     text-align: center;
@@ -14,6 +14,22 @@
 }
 ion-content {
     // overwrite inline styles
-    --overflow: hidden;
-    overflow: auto;
+    //--overflow: hidden;
+    //overflow: auto;
+    margin-top: 20%;
 }
+
+.botonLogearse{
+    width: 50px;
+    padding: 5px;
+}
+
+
+
+
+// .contenedorLogin{
+//     position: relative;
+//     top:20%;
+//     width: 100%;
+//     height: auto;
+// }

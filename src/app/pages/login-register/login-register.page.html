@@ -2,16 +2,18 @@
   <ion-item color="primary">
     <ion-img (click)="VolverAInicio()" src="/assets/back-icon.svg" class="iconoBack"></ion-img>
   </ion-item>
+  
+  <ion-segment color="primary" value="login/register" swipe-gesture="true" (ionChange)="segmentChanged($event)">
+    <ion-segment-button value="login">
+      <ion-icon name="log-in-outline"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button value="sign-up">
+      <ion-icon name="person-add-outline"></ion-icon>
+    </ion-segment-button>
+  </ion-segment>
 
-  <ion-item color="dark" class="contenedorBotones">
-    <ion-button (click)="AbrirLogeo()" size="small" class="botonLogearse" color="tertiary" slot="start">Logearse</ion-button>
-    <ion-button (click)="AbrirRegistro()" size="small" color="warning" slot="end">Registrarse</ion-button>
-  </ion-item>
-
-  <ion-content fullscreen *ngIf="mostrarVentanaLogeo">
-    <app-login></app-login>
-  </ion-content>
-  <ion-content fullscreen *ngIf="mostrarVentanaRegistro">
-    <app-register></app-register>
-  </ion-content>
+  <!-- <div *ngIf="mostrarVentanaLogeo" class="contenedorLogin"> -->
+    <app-login *ngIf="mostrarVentanaLogeo" ></app-login>
+  <!-- </div> -->
+  <app-register *ngIf="mostrarVentanaRegistro"></app-register>
 </ion-content>

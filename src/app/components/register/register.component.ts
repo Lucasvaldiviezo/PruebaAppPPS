@@ -56,14 +56,13 @@ export class RegisterComponent implements OnInit {
     }
   }
 
-  async presentToast(position: 'top' | 'middle' | 'bottom', color: 'primary' | 'danger') {
+  async presentToast(position: 'top' | 'middle' | 'bottom', color: 'primary' | 'danger' | 'warning') {
     const toast = await this.toastController.create({
       message: this.errorMessage,
       duration: 1500,
       position: position,
       color: color,
     });
-
     await toast.present();
   }
 

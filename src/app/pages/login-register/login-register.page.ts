@@ -14,15 +14,14 @@ export class LoginRegisterPage implements OnInit {
   ngOnInit() {
   }
 
-  AbrirRegistro(){
-
-    this.mostrarVentanaLogeo = false;
-    this.mostrarVentanaRegistro = true;
-  }
-
-  AbrirLogeo(){
-    this.mostrarVentanaLogeo = true;
+  segmentChanged(option:any){
+    if(option.detail.value == 'login'){
+      this.mostrarVentanaLogeo = true;
     this.mostrarVentanaRegistro = false;
+    }else{
+      this.mostrarVentanaLogeo = false;
+      this.mostrarVentanaRegistro = true;
+    }
   }
 
   VolverAInicio(){
